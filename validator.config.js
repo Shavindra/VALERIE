@@ -1,5 +1,5 @@
 //IE9+
-(function () {
+(function (Valerie) {
     'use strict';
 
     function extend(target, source) {
@@ -14,64 +14,63 @@
     // configure the inputs fot check for the following
     var selectors = {
 
-        parent: 'input-',
-        
+        parent: '.input-field',
+        form: '.form-',
+
         messages: {
-            
+
             requrired: '.msg-required',
-                    text: {
-            maxLength: false, // Maximum length of characters
-            minLength: false, // Minimum length of characters
-            spaces: false, // Spaces in input
-            specialChar: false, // Special Chars
-            match: false, // Match with another field
-            email: [], // Array of objects single or multiple
-            empty: false,
-            format: false, // Text format types
-            pattern: false, // Text format types
+            text: {
+                maxLength: false, // Maximum length of characters
+                minLength: false, // Minimum length of characters
+                spaces: false, // Spaces in input
+                specialChar: false, // Special Chars
+                match: false, // Match with another field
+                email: [], // Array of objects single or multiple
+                empty: false,
+                format: false, // Text format types
+                pattern: false, // Text format types
+            },
+
+            compare: {
+                type: false,
+                val: false,
+
+            },
+
+            number: {
+                minVal: false, // Min Value
+                maxVal: false, // Max Value 
+                phone: false, // Phone number
+                card: false, // Credit Card No
+                number: false, // general number            
+            },
+
+            dateTime: {
+                day: false, // Weekday Monday-Tuesday
+                date: false, // Date 
+                year: false, // Year
+                format: false, // Date format types
+
+            },
+
+            password: {
+                minLength: false, // 
+                maxLength: false,
+
+
+            },
+
+            search: {
+                maxLength: false, // Maximum length of characters
+                minLength: false, // Minimum length of characters
+                multiple: false //
+
+            }
 
 
         },
 
-        compare: {
-            type: false,
-            val: false,
-
-        },
-
-        number: {
-            minVal: false, // Min Value
-            maxVal: false, // Max Value 
-            phone: false, // Phone number
-            card: false, // Credit Card No
-            number: false, // general number            
-        },
-
-        dateTime: {
-            day: false, // Weekday Monday-Tuesday
-            date: false, // Date 
-            year: false, // Year
-            format: false, // Date format types
-
-        },
-
-        password: {
-            minLength: false, // 
-            maxLength: false,
-
-
-        },
-
-        search: {
-            maxLength: false, // Maximum length of characters
-            minLength: false, // Minimum length of characters
-            multiple: false //
-
-        }
-        
-        
-        },
-        
         fields: {
             text: '.input-text',
             password: '.input-pwd',
@@ -166,20 +165,9 @@
 
     };
 
-
-
     var options = {
 
-
     };
-
-    //
-
-
-
-    var config = extend(defaults, options);
-
-    console.log(config, defaults);
 
 
 }());
