@@ -1,19 +1,21 @@
-(function (document, window, Valerie) {
+(function (document, window) {
 
 
-    var Valerie = function () {
+    var valerie = function (selector) {
 
-        return
+        console.log(selector);
+
     }
 
-    Valerie.fn = Valerie.prototype = {
+    valerie.fn = valerie.prototype = {
         init: function (name) {
-            return name + 'goes here';
+            return name + ' goes here';
 
         },
 
-        setColor: function (color) {
-            return this;
+        options: function (color) {
+            console.log(color);
+            return color;
         },
 
         setGender: function (gender) {
@@ -21,10 +23,12 @@
         }
     }
 
-    var valerie = function() {
-        return new Valerie('someting').init('Bob')
+
+
+    window.Valerie = window.Valerie || function (config) {
+        return new valerie(config);
     }
 
-    console.log(valerie());
+})(document, window);
 
-})(document, window, window.Valerie = window.Valerie || function (something) {});
+console.log(Valerie('hgfhg').options('gjg'));
