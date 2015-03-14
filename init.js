@@ -3,19 +3,40 @@
 
     var valerie = function (selector) {
 
-        console.log(selector);
+        this.elems = document.querySelectorAll(selector);
 
-    }
+        for (var i = 0; i < this.elems.length; i++) {
+            var elem = this.elems[i];
+            this.init(elem);
+        }
 
-    valerie.fn = valerie.prototype = {
-        init: function (name) {
-            return name + ' goes here';
+    };
+
+    valerie.prototype = {
+
+        utils: {
+            extend: function (target, source) {
+                return target;
+            }
 
         },
 
-        options: function (color) {
-            console.log(color);
-            return color;
+        config: function (opts) {
+            console.log(opts);
+            return opts;
+
+
+        },
+
+        init: function (elem) {
+            elem.innerHTML = this.options;
+
+
+        },
+
+        options: function (opt) {
+            var opts = opt
+            return opts;
         },
 
         setGender: function (gender) {
@@ -25,10 +46,19 @@
 
 
 
-    window.Valerie = window.Valerie || function (config) {
-        return new valerie(config);
+    window.Valerie = window.Valerie || function (selector) {
+        return new valerie(selector);
     }
 
 })(document, window);
 
-console.log(Valerie('hgfhg').options('gjg'));
+window.onload = function () {
+    Valerie('.form').config({
+        id: 3234,
+        country: 'UK',
+        city: 'London'
+
+    });
+
+
+}
