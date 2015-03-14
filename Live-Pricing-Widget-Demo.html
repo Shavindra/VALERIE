@@ -1,0 +1,89 @@
+
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,300,700,800" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:600" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="http://cityindexpd.ektron9.dev.cityindex.co.uk/WebAssets/css/styles/ci-uk.css">
+    <link rel="stylesheet" type="text/css" href="http://cityindexpd.ektron9.dev.cityindex.co.uk/WebAssets/js/ci/live-prices/ci.liveprices.css" />
+
+        <div style="width: 762px;">
+            <!--Will have a fixed width in ektron which stop responsive-->
+
+            <div class="live-price" data-market-api="http://cityindexpd.ektron9.dev.cityindex.co.uk/ciapi/CiProxyLivePricesWidget/GetData/?marketId=" data-market-id="99625">
+                <div class="tile">
+                    <div class="gRow">
+                        <div class="gCol8 gCol8m gCol8s">
+                            <h2 class="ciMarketName"></h2>
+                            <span class="ciMarketChange">- 0.0%</span>
+                            <p class="ciInitialDeposit">Initial deposit: 0.0%</p>
+                            <div class="ciPriceDate date"></div>
+                            <a rel="ciTradeUrl" href="#" class="ciTradeButton btn-pri btn btn-cta btn-sm blue">Trade  </a>
+                        </div>
+                        <div class="gCol4 gCol4m gCol4s">
+                            <div class="ciDonut" data-ci-market-percent="0" data-ci-market-type="Buy">
+                                <div class="donut float-r">
+                                    <div class="donut-nofill">
+                                        <div class="donut-fill"></div>
+                                        <div class="donut-fill-long"></div>
+                                    </div>
+                                    <div class="donut-percents">
+                                        <div>
+                                            <span class="ciMarketPercent">%</span>
+                                            <p class="long">Long</p>
+                                            <p class="short">Short</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p class="ciSentimentExplantion">Our clients % long/short</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="gCol6">
+                        <a href="#" rel="ciTradeUrl">
+                            <div class="price-sell">
+                                <h2 class="sell-arrow">Sell</h2>
+                                <span class="ciMarketPriceSell">00.00</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="gCol6">
+                        <a href="#" rel="ciTradeUrl">
+                            <div class="price-buy">
+                                <h2 class="buy-arrow">Buy</h2>
+                                <span class="ciMarketPriceBuy">00.00</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="delay">
+                    <p>These prices are delayed by up to 15 minutes</p>
+                </div>
+
+            </div>
+
+        </div>
+        </div>
+
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>
+            window.jQuery || document.write('<script src="/WebAssets/js/global/libs/jquery-1.11.2.min.js"><\/script>')
+        </script>
+
+        <script src="http://cityindexpd.ektron9.dev.cityindex.co.uk/WebAssets/js/ci/live-prices/ci.liveprices.js" Type="text/javascript"></script>
+        <script type="text/javascript">
+            $(function () {
+                $.support.cors = true; // Required for IE9 & below
+                $('.live-price').livePrices({
+                    marketTradeLinkUrl: '/',
+                    pricesDuration: 10,
+                    pricesFromMinutesAgo: 10,
+                    pricesUpdateInterval: 1000,
+                    InitialDepositTextPrefix: 'Initial deposit: ',
+                    tradeButtonTextPrefix: 'Trade ',
+                    loadingMessage: 'Loading...',
+                    customErrorMessage: 'Live Prices are currently unavailable.'
+                });
+            });
+        </script>

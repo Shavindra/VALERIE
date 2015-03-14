@@ -1,30 +1,30 @@
-(function (document, window) {
+(function (document, window, Valerie) {
 
 
     var Valerie = function () {
 
-};
-Valerie.fn = Valerie.prototype = {
-    init: function (name) {
-        console.log('my name goes here');
-        console.log(this);
-
-        return this;
-
-    },
-
-    setColor: function (color) {
-        return this;
-    },
-
-    setGender: function (gender) {
-        return this;
+        return
     }
-}
 
+    Valerie.fn = Valerie.prototype = {
+        init: function (name) {
+            return name + 'goes here';
 
-var Valerie = new Valerie().init('Bob')
+        },
 
+        setColor: function (color) {
+            return this;
+        },
 
-})(document, window);
+        setGender: function (gender) {
+            return this;
+        }
+    }
 
+    var valerie = function() {
+        return new Valerie('someting').init('Bob')
+    }
+
+    console.log(valerie());
+
+})(document, window, window.Valerie = window.Valerie || function (something) {});
