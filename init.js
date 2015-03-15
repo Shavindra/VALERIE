@@ -2,48 +2,69 @@
 
 
     var valerie = function (selector) {
-
+        console.log(this);
         this.elems = document.querySelectorAll(selector);
+        this.config = valerie.prototype.config;
 
-        for (var i = 0; i < this.elems.length; i++) {
-            var elem = this.elems[i];
-            this.init(elem);
-        }
+        //        for (var i = 0; i < this.elems.length; i++) {
+        //            var elem = this.elems[i];
+        //            this.init(elem);
+        //
+        //        }
 
     };
+
 
     valerie.prototype = {
 
         utils: {
-            extend: function (target, source) {
-                return target;
+            extend: function () {
+                console.log(this.config);
+
+            },
+
+            setConfig: function (opts) {
+
+                valerie.prototype.config.options = opts
+
             }
 
         },
 
-        config: function (opts) {
-            console.log(opts);
-            return opts;
+        config: {
+            defaults: {
+                id: 23423,
+                country: 'UK',
+                city: 'London'
+
+            }
 
 
         },
 
         init: function (elem) {
-            elem.innerHTML = this.options;
 
+            console.log(elem);
 
         },
 
-        options: function (opt) {
-            var opts = opt
-            return opts;
-        },
-
-        setGender: function (gender) {
-            return this;
-        }
     }
 
+    valerie.prototype.validate = function (options) {
+        var self = this;
+
+        //        Element.prototype.init = function () {
+        //
+        //            return self.init();
+        //        }
+
+        for (var i = 0; i < this.elems.length; i++) {
+
+
+            self.init(this.elems[i]);
+
+        };
+    }
 
 
     window.Valerie = window.Valerie || function (selector) {
@@ -53,7 +74,7 @@
 })(document, window);
 
 window.onload = function () {
-    Valerie('.form').config({
+    Valerie('.form').validate({
         id: 3234,
         country: 'UK',
         city: 'London'
